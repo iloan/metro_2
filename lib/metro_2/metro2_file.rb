@@ -29,7 +29,7 @@ module Metro2
     end
 
     def trailer_from_base_segments
-      joint_segments = @base_segments.map(&:joint_segments).compact
+      joint_segments = @base_segments.map(&:joint_segment).compact
       status_code_count = Hash.new(0)
       num_ssn = 0
       num_dob = 0
@@ -91,6 +91,8 @@ module Metro2
       trailer.total_date_of_births_in_j1 = joint_segments.select { |js| js.segment_identifier == 'J1' && js.date_of_birth }.size
       trailer.total_social_security_numbers_in_j2 = joint_segments.select { |js| js.segment_identifier == 'J2' && js.social_security_number }.size
       trailer.total_date_of_births_in_j2 = joint_segments.select { |js| js.segment_identifier == 'J2' && js.date_of_birth }.size
+
+      trailer
     end
 
   end
