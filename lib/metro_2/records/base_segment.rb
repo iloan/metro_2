@@ -1,5 +1,7 @@
 module Metro2::Records
   class BaseSegment < Record
+    attr_accessor :joint_segment
+
     @fields = []
 
     numeric_const_field :record_descriptor_word, 4, Metro2::FIXED_LENGTH
