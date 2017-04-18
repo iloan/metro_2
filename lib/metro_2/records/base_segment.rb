@@ -1,7 +1,5 @@
 module Metro2::Records
   class BaseSegment < Record
-    attr_accessor :joint_segment
-
     @fields = []
 
     numeric_const_field :record_descriptor_word, 4, Metro2::FIXED_LENGTH
@@ -52,5 +50,13 @@ module Metro2::Records
     alphanumeric_field :postal_code, 9
     alphanumeric_field :address_indicator, 1
     alphanumeric_field :residence_code, 1
+
+    def joint_segment=(joint_segment)
+      @joint_segment = joint_segment
+    end
+
+    def joint_segment
+      @joint_segment
+    end
   end
 end
