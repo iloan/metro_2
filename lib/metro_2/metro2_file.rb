@@ -19,7 +19,6 @@ module Metro2
 
       @base_segments.each do |base|
         segments << base
-        segments << base.joint_segment if base.joint_segment
       end
 
       @trailer ||= trailer_from_base_segments

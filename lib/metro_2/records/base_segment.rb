@@ -58,5 +58,17 @@ module Metro2::Records
     def joint_segment
       @joint_segment
     end
+
+    def to_metro2
+      if joint_segment
+        joint_segment_to_metro2 = joint_segment.to_metro2
+      end
+
+      if joint_segment_to_metro2
+        self.class.fields.collect { |f| send("#{f}_to_metro2") }.join + ' ' + joint_segment_to_metro2
+      else
+        self.class.fields.collect { |f| send("#{f}_to_metro2") }.join
+      end
+    end
   end
 end
