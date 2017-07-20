@@ -16,11 +16,7 @@ module Metro2
     def to_s
       segments = []
       segments << @header
-
-      @base_segments.each do |base|
-        segments << base
-      end
-
+      @base_segments.each { |base| segments << base }
       @trailer ||= trailer_from_base_segments
       segments << @trailer
 
